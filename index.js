@@ -8,8 +8,8 @@ module.exports.getLinksFromMd = function getLinksFromMd(links) {
   }
 
   var result = [];
-  let regexUrl = new RegExp(/(?<=\().*?(?=\))/g);
-  let regexMarkdown = new RegExp (/(?<=\[).*?(?=\])/g);
+  let regexUrl = new RegExp (/(https?:\/\/)?(www\.)?(\w+)(\.*\w*)*(\/*\w*)*(?=\))/gi);
+  let regexMarkdown = new RegExp (/(?<=\[)(.*?)(?=\])/gi);
   let urls = links.match(regexUrl);
   let textMd = links.match(regexMarkdown);
   if (urls !== null && textMd !== null) {
